@@ -7,7 +7,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 require 'factory_bot_rails'
 
-FactoryBot.find_definitions
+FactoryBot.definition_file_paths << File.join(File.dirname(__FILE__), 'factories')
 
 ENGINE_ROOT = File.join(File.dirname(__FILE__), '../')
 
@@ -26,6 +26,4 @@ RSpec.configure do |config|
 
   config.filter_rails_from_backtrace!
   config.include FactoryBot::Syntax::Methods
-  config.factory_bot.definition_file_paths +=
-    [File.expand_path('../factories', __FILE__)] if defined?(FactoryBotRails)
 end
