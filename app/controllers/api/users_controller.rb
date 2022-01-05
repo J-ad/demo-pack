@@ -3,9 +3,7 @@
 module Api
   class UsersController < ApplicationController
     def create
-      @user = ::Api::Users::CreatorService.call(user_params)
-
-      render json: @user, status: :created
+      render json: ::Api::Users::CreatorService.call(user_params), status: :created
     end
 
     def index
