@@ -18,9 +18,9 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "rails", "~> 6.1.4", ">= 6.1.4.4"
   spec.add_dependency "pg", "~> 1.2.3"
-  spec.add_dependency "bcrypt", "3.1.13"
 
   spec.add_development_dependency "pg"
   spec.add_development_dependency "rspec-rails"
   spec.add_development_dependency "pry"
+  spec.add_development_dependency "factory_bot_rails"
 end
