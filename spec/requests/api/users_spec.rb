@@ -19,6 +19,7 @@ RSpec.describe "Api::Users", type: :request do
         get "/api/users/#{user.id}"
 
         expect(response.body).not_to be_empty
+        expect(parsed_json["name"]).to eq(user.name)
       end
     end
 
@@ -40,6 +41,7 @@ RSpec.describe "Api::Users", type: :request do
         post "/api/users", params: user_params
 
         expect(response.code).to eq("201")
+        expect(parsed_json["name"]).to eq(user_params[:user][:name])
       end
     end
 
@@ -64,5 +66,9 @@ RSpec.describe "Api::Users", type: :request do
         end
       end
     end
+  end
+
+  def parsed_json
+    JSON.parse(response.body)
   end
 end

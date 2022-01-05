@@ -3,14 +3,9 @@
 module Api
   class UsersController < ApplicationController
     def create
-      # TODO: extract user creation logic to service, use serializer
-      @user = User.new(user_params)
+      @user = ::Api::Users::CreatorService.call(user_params)
 
-      if @user.save
-        render :show, status: :created
-      else
-        render json: @user.errors, status: :unprocessable_entity
-      end
+      render json: @user, status: :created
     end
 
     def index
