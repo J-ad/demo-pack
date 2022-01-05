@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "lib/currency_exchange/version"
 
 Gem::Specification.new do |spec|
@@ -16,11 +18,11 @@ Gem::Specification.new do |spec|
 
   spec.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
 
-  spec.add_dependency "rails", "~> 6.1.4", ">= 6.1.4.4"
   spec.add_dependency "pg", "~> 1.2.3"
+  spec.add_dependency "rails", "~> 6.1.4", ">= 6.1.4.4"
 
-  spec.add_development_dependency "pg"
-  spec.add_development_dependency "rspec-rails"
-  spec.add_development_dependency "pry"
   spec.add_development_dependency "factory_bot_rails"
+  spec.add_development_dependency "pg"
+  spec.add_development_dependency "pry"
+  spec.add_development_dependency "rspec-rails"
 end

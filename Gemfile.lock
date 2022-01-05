@@ -2,7 +2,6 @@ PATH
   remote: engines/currency_exchange
   specs:
     currency_exchange (0.1.0)
-      bcrypt (= 3.1.13)
       pg (~> 1.2.3)
       rails (~> 6.1.4, >= 6.1.4.4)
 
@@ -69,7 +68,6 @@ GEM
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
     ast (2.4.2)
-    bcrypt (3.1.13)
     bootsnap (1.9.3)
       msgpack (~> 1.0)
     builder (3.2.4)

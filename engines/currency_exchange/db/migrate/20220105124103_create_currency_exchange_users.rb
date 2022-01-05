@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateCurrencyExchangeUsers < ActiveRecord::Migration[6.1]
   def change
     create_table :currency_exchange_users do |t|

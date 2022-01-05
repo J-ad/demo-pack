@@ -48,6 +48,6 @@ end
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Engines
-Dir.glob(File.expand_path("../engines/*", __FILE__)).each do |path|
+Dir.glob(File.expand_path("engines/*", __dir__)).each do |path|
   gem File.basename(path), path: path
 end
