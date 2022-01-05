@@ -10,12 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_05_095335) do
+ActiveRecord::Schema.define(version: 2022_01_05_142751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
+
+  create_table "currency_exchange_users", force: :cascade do |t|
+    t.uuid "external_id"
+    t.integer "base_value"
+    t.string "base_value_currency"
+    t.integer "calculated_value"
+    t.string "calculated_value_currency"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name", null: false

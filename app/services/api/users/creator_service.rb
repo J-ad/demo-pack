@@ -17,7 +17,9 @@ module Api
 
         raise ActiveRecord::RecordInvalid, @user unless @user.save
 
-        calculate_exchange_rate(user)
+        calculate_exchange_rate
+
+        @user
       end
 
       private
@@ -30,7 +32,10 @@ module Api
 
       def calculate_exchange_rate
         # TODO: this could be done async
-        TotalOrdersValueCalculatorService.call(params_for_exchange_rate_calculation)
+        exchanged_rate = TotalOrdersValueCalculatorService.call(params_for_exchange_rate_calculation)[:calculated_value]
+
+        # NOTE: we should catch errors here
+        @user.update(total_orders_eur: exchanged_rate)
       end
 
       def params_for_exchange_rate_calculation

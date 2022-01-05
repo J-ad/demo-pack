@@ -7,6 +7,8 @@ module CurrencyExchange
     module Users
       class TotalOrdersValueController < ApplicationController
         def convert
+          TotalOrdersValueCalculatorService.new(user_params).call
+
           render json: {
             external_id: "12",
             base_value: "1",
